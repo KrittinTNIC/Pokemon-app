@@ -135,7 +135,7 @@
         app:layout_constraintEnd_toStartOf="@+id/professor_oak"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/backgroundBox"
-        app:layout_constraintTop_toBottomOf="@id/textView" />/>
+        app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <!-- Starter Pokemon Images -->
     <ImageView

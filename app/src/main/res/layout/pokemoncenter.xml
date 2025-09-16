@@ -22,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Container -->
     <View
         android:id="@+id/backgroundBox"
         android:layout_width="0dp"
@@ -31,23 +30,9 @@
         android:background="@drawable/container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
-
-    <View
-        android:id="@+id/choosingbox"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/choosingbox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Pokeball logo -->
     <ImageView
@@ -60,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@id/backgroundBox"
         app:srcCompat="@drawable/pokeballlogo" />
 
-    <!-- Professor Oak -->
+    <!-- Nurse Joy -->
     <ImageView
         android:id="@+id/Nurse_Joy"
         android:layout_width="wrap_content"
@@ -121,5 +106,249 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/backgroundBox"
         app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <Button
+        android:id="@+id/gobutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
+        android:text="ok"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/pokemon_pixel_font"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/Nurse_Joy"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/backgroundBox"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <!-- Pokemon stats panel -->
+    <LinearLayout
+        android:id="@+id/pokemonStatsPanel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/pokemonstatsbox"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/backgroundBox"
+        app:layout_constraintTop_toBottomOf="@+id/answerButton2">
+
+        <!-- Pokemon name -->
+        <TextView
+            android:id="@+id/pokemonname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/pokemon_pixel_font"/>
+
+        <!-- Pokemon picture -->
+        <ImageView
+            android:id="@+id/pokemonpicture"
+            android:layout_width="169dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/charmander" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/mainElementText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fire"
+                android:textColor="@color/white"
+                android:background="@drawable/elementstextbox"
+                android:textSize="16sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/subElementText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="None"
+                android:textColor="@color/white"
+                android:background="@drawable/elementstextbox"
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font" />
+
+        </LinearLayout>
+
+        <!-- HP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="HP"
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/hpValueText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <SeekBar
+                android:id="@+id/hpSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="0"
+                android:enabled="true" />
+
+        </LinearLayout>
+
+        <!-- ATK -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="ATK"
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/atkValueText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <SeekBar
+                android:id="@+id/atkSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="0"
+                android:enabled="true" />
+        </LinearLayout>
+
+        <!-- DEF -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="DEF"
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/defValueText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <SeekBar
+                android:id="@+id/defSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="0"
+                android:enabled="true" />
+
+        </LinearLayout>
+
+        <!-- SPD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="SPD"
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/spdValueText"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:fontFamily="@font/pokemon_pixel_font"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <SeekBar
+                android:id="@+id/spdSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="255"
+                android:progress="0"
+                android:enabled="true" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/black"
+            android:text="Confirm Stats"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/pokemon_pixel_font"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/backgroundBox"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/backgroundBox"
+            app:layout_constraintTop_toBottomOf="@id/spdSeekBar"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

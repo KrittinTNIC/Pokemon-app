@@ -17,6 +17,7 @@ class PokeLab : AppCompatActivity() {
     private var blinkRunnable: Runnable? = null
     private var selectedPokemon: String? = null
     private var selectedPokemonelement: String? = null
+    private var selectedPokemonsubelement: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -183,22 +184,27 @@ class PokeLab : AppCompatActivity() {
         pokemon1.setOnClickListener {
             selectedPokemon = "Charmander"
             selectedPokemonelement = "fire"
+            selectedPokemonsubelement = "None"
             startDialogue2()
         }
         pokemon2.setOnClickListener {
             selectedPokemon = "Squirtle"
             selectedPokemonelement = "water"
+            selectedPokemonsubelement = "None"
             startDialogue2()
         }
         pokemon3.setOnClickListener {
             selectedPokemon = "Bulbasaur"
             selectedPokemonelement = "plant"
+            selectedPokemonsubelement = "poison"
             startDialogue2()
         }
 
         gobutton.setOnClickListener {
             val intent = Intent(this, PokemonCenter ::class.java)
             intent.putExtra("pokemon", selectedPokemon)
+            intent.putExtra("element", selectedPokemonelement)
+            intent.putExtra("subelement", selectedPokemonsubelement)
             startActivity(intent)
         }
     }
