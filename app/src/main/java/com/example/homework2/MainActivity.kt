@@ -2,6 +2,7 @@ package com.example.homework2
 
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.answerButton)
         val button2 = findViewById<Button>(R.id.answerButton2)
         val blinkIndicator = findViewById<TextView>(R.id.blinkIndicator)
+        val choosing = findViewById<View>(R.id.choosingbox)
 
         val dialogues = listOf(
             "??? : Hello there! Welcome to the world of POKEMON! My name is Oak! People call me the Pokemon professor!",
@@ -98,6 +100,7 @@ class MainActivity : AppCompatActivity() {
                     pokemon1.visibility = ImageView.VISIBLE
                     pokemon2.visibility = ImageView.VISIBLE
                     pokemon3.visibility = ImageView.VISIBLE
+                    choosing.visibility = View.VISIBLE
                 }
             }
         }
@@ -106,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             pokemon1.visibility = ImageView.GONE
             pokemon2.visibility = ImageView.GONE
             pokemon3.visibility = ImageView.GONE
+            choosing.visibility = View.GONE
             textView.visibility = TextView.VISIBLE
             button.visibility = Button.VISIBLE
             index = 0
