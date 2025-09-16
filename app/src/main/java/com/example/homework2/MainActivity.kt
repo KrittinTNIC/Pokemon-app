@@ -122,7 +122,6 @@ class MainActivity : AppCompatActivity() {
 
             fun showNextDialogue2() {
                 if (charIndex < dialogues2[index].length) {
-                    // Finish current text instantly if typing
                     handler.removeCallbacksAndMessages(null)
                     textView.text = dialogues2[index]
                     charIndex = dialogues2[index].length
