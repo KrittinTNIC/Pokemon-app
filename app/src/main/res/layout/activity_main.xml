@@ -101,7 +101,8 @@
         android:backgroundTint="@color/black"
         android:text="Next"
         android:textColor="@android:color/white"
-        android:textSize="10sp"
+        android:fontFamily="@font/pokemon_pixel_font"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/professor_oak"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/backgroundBox"
@@ -169,12 +170,13 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:text="Choose Again"
+        android:fontFamily="@font/pokemon_pixel_font"
         android:textColor="@android:color/white"
-        android:textSize="10sp"
+        android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/professor_oak"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/backgroundBox"
         app:layout_constraintTop_toBottomOf="@+id/answerButton" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

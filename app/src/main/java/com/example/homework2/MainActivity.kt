@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         val dialogues = listOf(
             "??? : Hello there! Welcome to the world of POKEMON! My name is Oak! People call me the Pokemon professor!",
-            "Oak : This world is inhabited by creatures called Pokemon! For some people, Pokemon are pets. Others use them for fights. Myself... I study Pokemon as a profession.",
+            "Oak : This world is inhabited by creatures called Pokemon! For some people, Pokemon are pets. Others use them for fights. I... myself, study Pokemon as a profession.",
             "Oak : Your very own Pokemon legend is about to unfold! A world of dreams and adventures with Pokemon awaits!",
             "Oak : Here, there are 3 Pokemon here! You can have one! Choose!"
         )
@@ -106,38 +106,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun startDialogue2() {
+            val chooseAgainButton = findViewById<Button>(R.id.chooseAgainButton)
+
             pokemon1.visibility = ImageView.GONE
             pokemon2.visibility = ImageView.GONE
             pokemon3.visibility = ImageView.GONE
             choosing.visibility = View.GONE
             textView.visibility = TextView.VISIBLE
             button.visibility = Button.VISIBLE
+            chooseAgainButton.visibility = View.GONE // hidden by default
             index = 0
 
             val dialogues2 = listOf(
                 "Oak: So... you want the $selectedPokemonelement Pokemon, $selectedPokemon ?",
-                "Oak: Remember, a strong trainer respects their Pokemon and forms a bond with them.",
+                "Oak: Good choice! remember, a strong trainer respects their Pokemon and forms a bond with them.",
                 "Oak: Now, go out there and start your adventure!"
             )
 
-            fun showNextDialogue2() {
-                if (charIndex < dialogues2[index].length) {
-                    handler.removeCallbacksAndMessages(null)
-                    textView.text = dialogues2[index]
-                    charIndex = dialogues2[index].length
-                    blinkIndicator.visibility = TextView.VISIBLE
+            fun showDialogue2Line() {
+                // Show text
+                showTextAnimated(dialogues2[index])
+                // If it's the confirmation line, show the Choose Again button
+                if (index == 0) {
+                    chooseAgainButton.visibility = View.VISIBLE
                 } else {
-                    // Stop previous blinking
-                    blinkRunnable?.let { handler.removeCallbacks(it) }
-                    blinkIndicator.visibility = TextView.GONE
-
-                    if (index < dialogues2.size) {
-                        showTextAnimated(dialogues2[index])
-                        index++
-                    }
+                    chooseAgainButton.visibility = View.GONE
                 }
             }
 
+            // Handle Next button
             button.setOnClickListener {
                 if (charIndex < dialogues2[index].length) {
                     handler.removeCallbacksAndMessages(null)
@@ -145,12 +142,35 @@ class MainActivity : AppCompatActivity() {
                     charIndex = dialogues2[index].length
                     blinkIndicator.visibility = TextView.VISIBLE
                 } else {
-                    index = (index + 1) % dialogues2.size
-                    showTextAnimated(dialogues2[index])
+                    index++
+                    if (index < dialogues2.size) {
+                        showDialogue2Line()
+                    } else {
+                        // End of dialogues
+                        chooseAgainButton.visibility = View.GONE
+                    }
                 }
             }
-            showTextAnimated(dialogues2[index])
-            index++
+
+            // Handle Choose Again button
+            chooseAgainButton.setOnClickListener {
+                // Reset everything
+                handler.removeCallbacksAndMessages(null)
+                blinkRunnable?.let { handler.removeCallbacks(it) }
+
+                textView.text = ""
+                textView.visibility = View.GONE
+                button.visibility = View.GONE
+                chooseAgainButton.visibility = View.GONE
+                blinkIndicator.visibility = View.GONE
+
+                // Show Pokémon again
+                pokemon1.visibility = ImageView.VISIBLE
+                pokemon2.visibility = ImageView.VISIBLE
+                pokemon3.visibility = ImageView.VISIBLE
+                choosing.visibility = View.VISIBLE
+            }
+            showDialogue2Line()
         }
 
         //initiate dialogue2
