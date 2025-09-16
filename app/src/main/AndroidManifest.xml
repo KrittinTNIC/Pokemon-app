@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Homework2">
         <activity
-            android:name=".MainActivity"
+            android:name=".PokemonCenter"
+            android:exported="false"/>
+        <activity
+            android:name=".PokeLab"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

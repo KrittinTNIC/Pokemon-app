@@ -1,5 +1,6 @@
 package com.example.homework2
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -9,7 +10,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class PokeLab : AppCompatActivity() {
 
     private val handler = Handler()
     private var charIndex = 0 //count position of char
@@ -20,11 +21,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.pokelab)
 
         val textView = findViewById<TextView>(R.id.textView)
         val button = findViewById<Button>(R.id.answerButton)
-        val button2 = findViewById<Button>(R.id.answerButton2)
+        val gobutton = findViewById<Button>(R.id.gobutton)
         val blinkIndicator = findViewById<TextView>(R.id.blinkIndicator)
         val choosing = findViewById<View>(R.id.choosingbox)
 
@@ -124,13 +125,18 @@ class MainActivity : AppCompatActivity() {
             )
 
             fun showDialogue2Line() {
-                // Show text
                 showTextAnimated(dialogues2[index])
-                // If it's the confirmation line, show the Choose Again button
                 if (index == 0) {
                     chooseAgainButton.visibility = View.VISIBLE
                 } else {
                     chooseAgainButton.visibility = View.GONE
+                }
+                if (index == 2) {
+                    button.visibility = View.GONE
+                    gobutton.visibility = View.VISIBLE
+                } else {
+                    gobutton.visibility = View.GONE
+                    button.visibility = View.VISIBLE
                 }
             }
 
@@ -190,5 +196,10 @@ class MainActivity : AppCompatActivity() {
             startDialogue2()
         }
 
+        gobutton.setOnClickListener {
+            val intent = Intent(this, PokemonCenter ::class.java)
+            intent.putExtra("pokemon", selectedPokemon)
+            startActivity(intent)
+        }
     }
 }

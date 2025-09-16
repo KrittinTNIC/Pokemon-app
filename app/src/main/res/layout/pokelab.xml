@@ -6,8 +6,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/appbg"
-    tools:context=".MainActivity">
+    tools:context=".PokeLab">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/backgroundImage1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/pokelabbg"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Container -->
     <View
@@ -68,13 +80,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/textbubble"
         android:fontFamily="@font/pokemon_pixel_font"
         android:padding="12dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/professor_oak"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundBox"
         app:layout_constraintStart_toStartOf="@+id/backgroundBox"
         app:layout_constraintTop_toBottomOf="@+id/pokeball" />
 
@@ -109,19 +122,20 @@
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <Button
-        android:id="@+id/answerButton2"
+        android:id="@+id/gobutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/black"
-        android:text="Next"
-        android:textSize="10sp"
-        android:visibility="gone"
+        android:text="let's go"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/backgroundBox"
-        app:layout_constraintHorizontal_bias="0.24"
+        android:fontFamily="@font/pokemon_pixel_font"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/professor_oak"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/backgroundBox"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintTop_toBottomOf="@id/textView" />/>
 
     <!-- Starter Pokemon Images -->
     <ImageView
