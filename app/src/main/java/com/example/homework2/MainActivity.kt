@@ -72,9 +72,9 @@ class MainActivity : AppCompatActivity() {
         index++
 
         // pokemons
-        val pokemon1 = findViewById<ImageView>(R.id.pokemon1)
-        val pokemon2 = findViewById<ImageView>(R.id.pokemon2)
-        val pokemon3 = findViewById<ImageView>(R.id.pokemon3)
+        val pokemon1 = findViewById<ImageView>(R.id.charmander)
+        val pokemon2 = findViewById<ImageView>(R.id.squirtle)
+        val pokemon3 = findViewById<ImageView>(R.id.bulbasaur)
 
         button.setOnClickListener {
             if (charIndex < dialogues[index - 1].length) {
