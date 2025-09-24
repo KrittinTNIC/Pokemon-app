@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Homework2">
         <activity
+            android:name=".Pokedex"
+            android:exported="false"/>
+        <activity
             android:name=".PokemonCenter"
             android:exported="false"/>
         <activity
